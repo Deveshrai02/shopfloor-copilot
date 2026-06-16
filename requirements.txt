@@ -1,0 +1,9 @@
+langgraph
+langchain-anthropic
+faiss-cpu
+fastapi
+uvicorn
+streamlit
+python-dotenv
+pydantic
+sentence-transformers
