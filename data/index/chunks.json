@@ -1,0 +1,527 @@
+[
+  {
+    "text": "# OP-FA-026: End-of-Shift Handover and OEE Reconciliation\n\n| Field | Detail |\n|---|---|\n| **Document ID** | OP-FA-026 |\n| **Revision** | [INSERT REV] |\n| **Effective Date** | [INSERT DATE] |\n| **Owner** | Production Supervisor |\n| **Approved By** | [INSERT NAME/TITLE] |\n| **ISA-95 Level** | Level 3 — Manufacturing Operations Management |\n\n---\n\n## 1. Scope\n\nThis procedure governs the structured handover between outgoing and incoming shift teams at every scheduled shift change. It includes the rec",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 0,
+    "chunk_index": 0
+  },
+  {
+    "text": "every scheduled shift change. It includes the reconciliation of Overall Equipment Effectiveness (OEE) metrics and downtime reason codes within the Manufacturing Execution System (MES) to ensure data integrity and operational continuity.\n\n**Applicable Lines:**\n- Trim Assembly\n- Final Assembly\n- EV Battery Lines\n\nThis procedure does not cover unplanned or emergency shift changes; those are handled under [INSERT EMERGENCY SHIFT CHANGE PROCEDURE ID].\n\n---\n\n## 2. Roles and Responsibilities\n\n| Role |",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 450,
+    "chunk_index": 1
+  },
+  {
+    "text": ".\n\n---\n\n## 2. Roles and Responsibilities\n\n| Role | Responsibility |\n|---|---|\n| **Outgoing Team Leader** | Reviews shift OEE data; corrects downtime coding errors; prepares and presents the handover; physically walks the line with the incoming counterpart |\n| **Incoming Team Leader** | Attends the line walk; confirms comprehension of all open items; signs the handover sheet in MES |\n| **Production Supervisor** | Reviews final shift OEE figure; adds loss-category commentary if OEE is below site t",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 900,
+    "chunk_index": 2
+  },
+  {
+    "text": "ds loss-category commentary if OEE is below site target; retains sign-off authority; owns escalation actions |\n\n---\n\n## 3. Trigger Conditions\n\n| Trigger | Frequency |\n|---|---|\n| Scheduled shift change | Every shift, without exception |\n\nThis procedure is mandatory at every shift boundary regardless of production volume, line status, or staffing level.\n\n---\n\n## 4. Step-by-Step Procedure\n\n**Step 1 — Review Shift OEE Summary (T-15 min)**\nThe Outgoing Team Leader opens the MES OEE Dashboard no late",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 1350,
+    "chunk_index": 3
+  },
+  {
+    "text": "ng Team Leader opens the MES OEE Dashboard no later than 15 minutes before scheduled shift end and reviews the shift OEE summary for all applicable lines. Confirm that the figures displayed match expectations based on known events during the shift.\n\n**Step 2 — Reconcile Downtime Reason Codes**\nCross-check all downtime events logged during the shift against their assigned reason codes. Correct any miscoded entries before the shift is closed in MES. Downtime entries must be attributed to an approv",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 1800,
+    "chunk_index": 4
+  },
+  {
+    "text": ". Downtime entries must be attributed to an approved reason code from the site master list; entries coded as \"Unknown\" or \"Other\" require resolution before shift close.\n\n**Step 3 — Document Open Items on Handover Sheet**\nRecord all of the following on Handover Sheet FA-HO-03, either digitally in MES or as a printed supplement:\n- Active quality holds and the affected part numbers or stations\n- In-progress or incomplete maintenance work orders, including WO numbers\n- Unresolved material shortages",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 2250,
+    "chunk_index": 5
+  },
+  {
+    "text": "luding WO numbers\n- Unresolved material shortages and their downstream impact\n\n**Step 4 — Conduct Physical Line Walk**\nThe Outgoing Team Leader walks the full line with the Incoming Team Leader. The walk must include:\n- Any workstation currently running below standard takt time, with the reason identified\n- Any temporary workarounds, fixture substitutions, or manual interventions in place\n- Visual confirmation of material levels at lineside supermarkets or point-of-use racks\n\n**Step 5 — Incoming",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 2700,
+    "chunk_index": 6
+  },
+  {
+    "text": "markets or point-of-use racks\n\n**Step 5 — Incoming Team Leader Sign-Off**\nUpon completion of the line walk, the Incoming Team Leader confirms understanding of all open items documented in Step 3 and signs the handover sheet within MES. This signature constitutes formal acceptance of shift ownership and open-item responsibility.\n\n**Step 6 — Production Supervisor OEE Review**\nThe Production Supervisor reviews the closed shift's OEE figure. If OEE is below the site target of [INSERT THRESHOLD]%:\n-",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 3150,
+    "chunk_index": 7
+  },
+  {
+    "text": "s below the site target of [INSERT THRESHOLD]%:\n- The Supervisor adds a brief written note to the shift report identifying the **primary loss category**: Availability, Performance, or Quality.\n- The note must include the top contributing event or reason code for that category.\n\n**Step 7 — Open Item Ageing Check**\nAny open item carried forward from the handover sheet that remains unresolved after **2 consecutive shifts** is formally escalated to the Production Supervisor for corrective action ass",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 3600,
+    "chunk_index": 8
+  },
+  {
+    "text": "he Production Supervisor for corrective action assignment. The Production Supervisor is responsible for designating an owner and target resolution date.\n\n---\n\n## 5. Escalation Criteria\n\n| Condition | Escalation Action |\n|---|---|\n| OEE falls below site target ([INSERT THRESHOLD]%) for **3 consecutive shifts on the same line** | Production Supervisor initiates a formal review meeting with the Plant Manager and Industrial Engineering within [INSERT TIMEFRAME] of the third consecutive miss |\n| Open",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 4050,
+    "chunk_index": 9
+  },
+  {
+    "text": "TIMEFRAME] of the third consecutive miss |\n| Open item unresolved after 2 consecutive shifts | Escalated to Production Supervisor per Step 7 |\n| Downtime reason code cannot be resolved by Outgoing Team Leader | Production Supervisor is notified before shift close to assign resolution ownership |\n\n---\n\n## 6. Related Documents\n\n| Document | ID |\n|---|---|\n| MES OEE Dashboard Guide | [INSERT DOC ID] |\n| Shift Handover Sheet | FA-HO-03 |\n| Downtime Reason Code Master List | [INSERT DOC ID] |\n| Emer",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 4500,
+    "chunk_index": 10
+  },
+  {
+    "text": "Reason Code Master List | [INSERT DOC ID] |\n| Emergency Shift Change Procedure | [INSERT DOC ID] |\n\n---\n\n*End of OP-FA-026*",
+    "source": "OP-FA-026-end-of-shift-handover-oee-reconciliation.md",
+    "doc_id": "OP-FA-026-end-of-shift-handover-oee-reconciliation",
+    "char_start": 4950,
+    "chunk_index": 11
+  },
+  {
+    "text": "# SOP-EV-002: EV Battery Pack Handling and High-Voltage Isolation\n\n| Field | Detail |\n|---|---|\n| **Document ID** | SOP-EV-002 |\n| **Revision** | 2 |\n| **Effective Date** | 2026-02-20 |\n| **Area** | EV Battery Assembly |\n| **Owner** | EHS Coordinator |\n| **Approved By** | [INSERT NAME/TITLE] |\n| **ISA-95 Level** | Level 3 — Manufacturing Operations Management |\n\n---\n\n## 1. Scope\n\nThis procedure covers the safe handling, lifting, and high-voltage (HV) isolation verification for EV battery packs d",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 0,
+    "chunk_index": 0
+  },
+  {
+    "text": "(HV) isolation verification for EV battery packs during all line transit and installation activities. It applies to every battery pack movement on the EV Battery Assembly line without exception.\n\n**Schedule pressure, production targets, and staffing constraints do not override any step in this procedure.**\n\nThis procedure does not cover battery pack repair, disassembly, or off-line diagnostic testing; refer to the applicable EV Engineering Work Instruction for those activities.\n\n---\n\n## 2. Roles",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 450,
+    "chunk_index": 1
+  },
+  {
+    "text": "nstruction for those activities.\n\n---\n\n## 2. Roles and Responsibilities\n\n| Role | Responsibility |\n|---|---|\n| **HV-Certified Operator** | Sole authorised role for physical handling of battery packs; confirms own certification at station before starting any task; performs all lifting, installation, and connector operations |\n| **Battery Line Team Leader** | Owns all line restart decisions following any HV event; confirms corrective actions are in place before authorising restart |\n| **EHS Coordi",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 900,
+    "chunk_index": 2
+  },
+  {
+    "text": "place before authorising restart |\n| **EHS Coordinator** | Holds sign-off authority for any isolation fault or HV-related line stop; must be notified immediately upon any isolation indicator failure or suspected HV fault |\n| **Battery Engineer** | Co-holds restart sign-off authority alongside the EHS Coordinator following any isolation fault, interlock fault, or damaged-pack event |\n\n---\n\n## 3. Trigger Conditions\n\n| Trigger | Notes |\n|---|---|\n| Any battery pack movement, lifting, or installati",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 1350,
+    "chunk_index": 3
+  },
+  {
+    "text": "Any battery pack movement, lifting, or installation | Applies to every occurrence without exception |\n| Suspected HV system fault | Includes unexpected indicator states, unusual sounds, smells, or heat from a pack |\n\n---\n\n## 4. Step-by-Step Procedure\n\n**Step 1 — Certification Confirmation**\nBefore beginning any pack handling task, confirm that the assigned operator holds current HV certification. Perform a badge check at the station. An operator whose HV certification has lapsed must not begin",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 1800,
+    "chunk_index": 4
+  },
+  {
+    "text": "whose HV certification has lapsed must not begin the task; the Battery Line Team Leader is responsible for assigning a certified replacement.\n\n**Step 2 — Pre-Lift Visual Inspection**\nVisually inspect the entire pack housing for damage, swelling, deformation, electrolyte leakage, or exposed wiring before the lift fixture is attached. Any anomaly is a stop-and-notify condition — see Step 5.\n\n**Step 3 — Lift Fixture Attachment**\nAttach only the designated battery lift fixture to the pack. Manual h",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 2250,
+    "chunk_index": 5
+  },
+  {
+    "text": "ignated battery lift fixture to the pack. Manual handling of battery packs is **prohibited** under all circumstances, including time-pressure situations. Confirm the fixture is correctly seated and locked before initiating the lift.\n\n**Step 4 — HV Isolation Status Verification**\nBefore making any contact with the pack's connector interfaces, confirm HV isolation status via the isolation indicator on the pack dashboard. The indicator must display **green (isolated)** before proceeding.\n\n**Step 5",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 2700,
+    "chunk_index": 6
+  },
+  {
+    "text": "**green (isolated)** before proceeding.\n\n**Step 5 — Isolation Fault Response**\nIf the isolation indicator does not confirm green:\n1. Do not proceed with any connector or wiring work.\n2. Do not return the pack to the line.\n3. Apply LOTO per SOP-EHS-001.\n4. Notify the EHS Coordinator immediately via [INSERT NOTIFICATION METHOD].\n5. Await EHS Coordinator and Battery Engineer sign-off before any further action.\n\n**Step 6 — Pack Installation and Torque Sequence**\nInstall the pack per the torque seque",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 3150,
+    "chunk_index": 7
+  },
+  {
+    "text": "e Sequence**\nInstall the pack per the torque sequence specified on Battery Build Sheet EV-BS-014. The specified bolt sequence must not be deviated from; incorrect sequencing risks uneven casing load distribution and structural compromise of the pack housing.\n\n**Step 7 — HV Interlock Reconnection and Confirmation**\nReconnect the HV interlock connector as the **last** action in the installation sequence. Confirm that the interlock status light on the station HMI shows the expected state before rel",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 3600,
+    "chunk_index": 8
+  },
+  {
+    "text": "he station HMI shows the expected state before releasing the pack from the lift fixture.\n\n**Step 8 — MES Traceability Entry**\nLog the following in MES before the unit proceeds to the next station:\n- Battery pack serial number\n- Operator ID\n- Installation timestamp\n- Isolation check result\n- Interlock confirmation status\n\n---\n\n## 5. Escalation Criteria\n\n| Condition | Escalation Action |\n|---|---|\n| Damaged pack (any visible anomaly from Step 2) | Line stop; EHS Coordinator and Battery Engineer si",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 4050,
+    "chunk_index": 9
+  },
+  {
+    "text": "Line stop; EHS Coordinator and Battery Engineer sign-off required before restart |\n| Failed HV isolation check | Line stop; LOTO applied; EHS Coordinator notified immediately; no restart without dual sign-off |\n| Interlock fault on station HMI | Line stop; EHS Coordinator and Battery Engineer sign-off required before restart |\n\n**No exceptions to the dual sign-off requirement apply, regardless of production schedule pressure.**\n\n---\n\n## 6. Related Documents\n\n| Document | ID |\n|---|---|\n| HV Lock",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 4500,
+    "chunk_index": 10
+  },
+  {
+    "text": "d Documents\n\n| Document | ID |\n|---|---|\n| HV Lockout-Tagout Procedure | SOP-EHS-001 |\n| Battery Build Sheet | EV-BS-014 |\n| HV Operator Certification Register | [INSERT DOC ID / SYSTEM LOCATION] |\n\n---\n\n*End of SOP-EV-002 Rev 2*",
+    "source": "SOP-EV-002-battery-hv-handling.md",
+    "doc_id": "SOP-EV-002-battery-hv-handling",
+    "char_start": 4950,
+    "chunk_index": 11
+  },
+  {
+    "text": "# SOP-FA-014: Unplanned Line Stoppage Response\n\n| Field | Detail |\n|---|---|\n| **Document ID** | SOP-FA-014 |\n| **Revision** | 3 |\n| **Effective Date** | 2026-01-14 |\n| **Area** | Final Assembly |\n| **Owner** | Production Supervisor |\n| **Approved By** | [INSERT NAME/TITLE] |\n| **ISA-95 Level** | Level 3 — Manufacturing Operations Management |\n\n---\n\n## 1. Scope\n\nThis procedure defines the required response sequence when a Final Assembly line stops unexpectedly during a production shift. It cover",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 0,
+    "chunk_index": 0
+  },
+  {
+    "text": "s unexpectedly during a production shift. It covers operator containment actions, Team Leader first-response, fault categorisation, Maintenance Technician diagnosis, and restart confirmation.\n\n**This procedure does not cover:** scheduled changeovers, planned maintenance windows, break-related line pauses, or operator-initiated quality holds (see SOP-QA-007 for the latter).\n\n---\n\n## 2. Roles and Responsibilities\n\n| Role | Responsibility |\n|---|---|\n| **Line Operator** | Initiates stop confirmatio",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 450,
+    "chunk_index": 1
+  },
+  {
+    "text": "|\n| **Line Operator** | Initiates stop confirmation via the Andon system; remains at station; provides first-hand account of conditions at time of stoppage |\n| **Team Leader** | First responder; attends within 2 minutes; categorises the fault; coordinates material, maintenance, or quality response; restarts the line and validates first units off restart |\n| **Maintenance Technician** | Diagnoses and clears mechanical and electrical faults; applies LOTO before working on any energised or moving e",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 900,
+    "chunk_index": 2
+  },
+  {
+    "text": "s LOTO before working on any energised or moving equipment; signs off fault clearance in MES with correct downtime reason code |\n| **Production Supervisor** | Owns all escalations beyond 15-minute downtime threshold; authorises actions when downtime approaches the 45-minute formal incident threshold |\n\n---\n\n## 3. Trigger Conditions\n\n| Trigger | Notes |\n|---|---|\n| Line stops without an operator-initiated stop command | Includes safety interlock trips, e-stop activations, and control system fault",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 1350,
+    "chunk_index": 3
+  },
+  {
+    "text": "rips, e-stop activations, and control system faults |\n| Andon triggered by any station | Regardless of cause |\n| Conveyor halt exceeding 2 minutes with no scheduled cause | If no fault is identifiable within 2 minutes, treat as unplanned stoppage |\n\n---\n\n## 4. Step-by-Step Procedure\n\n**Step 1 — Operator Andon Confirmation**\nUpon any unplanned line stop, the Operator presses the Andon or line-stop confirm button at their station to formally register the stoppage event in MES. The Operator remains",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 1800,
+    "chunk_index": 4
+  },
+  {
+    "text": "er the stoppage event in MES. The Operator remains at their station and does not attempt to diagnose or clear the fault independently.\n\n**Step 2 — Team Leader First Response**\nThe Team Leader attends the affected station within **2 minutes** of the Andon activation. The Team Leader assesses the situation and categorises the fault into one of the following:\n- **Mechanical / Electrical** — equipment failure, sensor fault, drive fault\n- **Material shortage** — lineside stock depleted, missing kit\n-",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 2250,
+    "chunk_index": 5
+  },
+  {
+    "text": "hortage** — lineside stock depleted, missing kit\n- **Quality hold** — defect requiring containment before the line can continue\n\n**Step 3 — Mechanical / Electrical Fault Response**\nIf the fault category is mechanical or electrical:\n1. Team Leader logs the fault in MES with an initial description and the affected workstation.\n2. Team Leader pages the on-shift Maintenance Technician via [INSERT NOTIFICATION METHOD].\n3. No other personnel attempt repair or adjustment of the equipment.\n\n**Step 4 — M",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 2700,
+    "chunk_index": 6
+  },
+  {
+    "text": "pair or adjustment of the equipment.\n\n**Step 4 — Material Shortage Response**\nIf the fault category is a material shortage:\n1. Team Leader checks the lineside kanban card or MES material status for the affected part.\n2. Team Leader contacts the Material Handler and communicates the specific part number and quantity required.\n3. Team Leader monitors kanban replenishment and confirms material receipt at lineside before authorising line restart.\n\n**Step 5 — Quality-Related Stoppage Response**\nIf th",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 3150,
+    "chunk_index": 7
+  },
+  {
+    "text": "Step 5 — Quality-Related Stoppage Response**\nIf the fault category is a quality hold or suspected non-conformance, follow **SOP-QA-007 (Quality Hold and Containment Procedure)** in full before any line restart.\n\n**Step 6 — Maintenance Diagnosis and LOTO**\nThe Maintenance Technician diagnoses the fault. Before performing any work on energised, pressurised, or moving equipment, the Maintenance Technician applies Lockout-Tagout (LOTO) per **SOP-MT-022**. No other personnel may work on or around the",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 3600,
+    "chunk_index": 8
+  },
+  {
+    "text": "22**. No other personnel may work on or around the isolated equipment while LOTO is applied.\n\n**Step 7 — Fault Clearance Sign-Off in MES**\nOnce the fault is resolved, the Maintenance Technician removes LOTO (following SOP-MT-022 restoration steps) and records the following in MES:\n- Fault description and root cause\n- Corrective action taken\n- Downtime reason code (selected from the MES Downtime Reason Code List)\n- Fault clearance timestamp and Maintenance Technician ID\n\n**Step 8 — Restart and Fi",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 4050,
+    "chunk_index": 9
+  },
+  {
+    "text": "intenance Technician ID\n\n**Step 8 — Restart and First-Unit Verification**\nThe Team Leader authorises and initiates the line restart. The first **3 units** produced after restart are subject to a visual quality check by the Team Leader before normal takt resumes. Any anomaly on the first-off units triggers re-entry to SOP-QA-007.\n\n---\n\n## 5. Escalation Criteria\n\n| Condition | Escalation Action |\n|---|---|\n| Downtime exceeds **15 minutes** | Automatic escalation to Production Supervisor; Team Lead",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 4500,
+    "chunk_index": 10
+  },
+  {
+    "text": "tic escalation to Production Supervisor; Team Leader notifies verbally and via MES alert |\n| Downtime exceeds **45 minutes** | Escalation to Plant Manager; formal incident ticket opened in [INSERT SYSTEM]; Production Supervisor owns the ticket |\n| Quality-related stoppage at any duration | Follow SOP-QA-007; Quality Engineer sign-off required before restart if safety-critical fasteners are implicated |\n\n---\n\n## 6. Related Documents\n\n| Document | ID |\n|---|---|\n| Quality Hold and Containment Proc",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 4950,
+    "chunk_index": 11
+  },
+  {
+    "text": "ID |\n|---|---|\n| Quality Hold and Containment Procedure | SOP-QA-007 |\n| Lockout-Tagout (LOTO) Procedure | SOP-MT-022 |\n| MES Downtime Reason Code List | [INSERT DOC ID / MES LOCATION] |\n\n---\n\n*End of SOP-FA-014 Rev 3*",
+    "source": "SOP-FA-014-unplanned-line-stoppage-response.md",
+    "doc_id": "SOP-FA-014-unplanned-line-stoppage-response",
+    "char_start": 5400,
+    "chunk_index": 12
+  },
+  {
+    "text": "# SOP-FA-019: Torque Verification and Fastener Audit\n\n| Field | Detail |\n|---|---|\n| **Document ID** | SOP-FA-019 |\n| **Revision** | 6 |\n| **Effective Date** | 2026-03-05 |\n| **Area** | Final Assembly |\n| **Owner** | Quality Engineer |\n| **Approved By** | [INSERT NAME/TITLE] |\n| **ISA-95 Level** | Level 3 — Manufacturing Operations Management |\n\n---\n\n## 1. Scope\n\nThis procedure covers routine in-process torque verification and periodic fastener audit for safety-critical joints in the Final Assem",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 0,
+    "chunk_index": 0
+  },
+  {
+    "text": "udit for safety-critical joints in the Final Assembly area. Safety-critical joints include, but are not limited to, seatbelt anchorage points and suspension mounts.\n\nThis procedure applies to all pulse and electronic torque tools used on safety-critical fastener cycles and to all units produced on lines governed by Control Plan FA-CP-04.\n\nThis procedure does not cover non-safety fastener torque verification; refer to the applicable work instruction for standard-torque joints.\n\n---\n\n## 2. Roles a",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 450,
+    "chunk_index": 1
+  },
+  {
+    "text": "on for standard-torque joints.\n\n---\n\n## 2. Roles and Responsibilities\n\n| Role | Responsibility |\n|---|---|\n| **Operator** | Performs shift-start calibration check on the torque tool; records result in MES; removes tool from service immediately upon calibration failure |\n| **Quality Technician** | Performs periodic in-process fastener audits at the frequency defined in Control Plan FA-CP-04; records audit results against unit serial number in MES; initiates line stop and quarantine upon audit fai",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 900,
+    "chunk_index": 2
+  },
+  {
+    "text": "initiates line stop and quarantine upon audit failure |\n| **Maintenance Technician** | Responds to tool tag-out notifications; performs or coordinates tool calibration; clears tag-out only after verified recalibration |\n| **Quality Engineer** | Holds sole authority to authorise line restart following a failed safety-critical torque audit |\n\n---\n\n## 3. Trigger Conditions\n\n| Trigger | Frequency |\n|---|---|\n| Shift-start calibration check | Every shift, before first unit is produced |\n| In-process",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 1350,
+    "chunk_index": 3
+  },
+  {
+    "text": "hift, before first unit is produced |\n| In-process safety-critical fastener audit | Per Control Plan FA-CP-04 — typically every 50th unit; the control plan value is authoritative |\n\n---\n\n## 4. Step-by-Step Procedure\n\n**Step 1 — Shift-Start Calibration Check**\nAt the start of each shift, before production begins, the Operator performs a calibration check on the pulse or electronic torque tool by testing it against a calibrated reference torque wrench. The pass/fail result and the reference wrench",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 1800,
+    "chunk_index": 4
+  },
+  {
+    "text": "nch. The pass/fail result and the reference wrench ID are recorded in MES against the shift and workstation.\n\n**Step 2 — Tool Failure Response**\nIf the shift-start calibration check fails:\n- Remove the tool from service immediately.\n- Apply a tag-out tag in accordance with the site lockout/tagout procedure.\n- Notify the Maintenance Technician via [INSERT NOTIFICATION METHOD — e.g., MES alert / radio call].\n- Do not begin production on the affected station until a calibrated replacement tool is i",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 2250,
+    "chunk_index": 5
+  },
+  {
+    "text": "d station until a calibrated replacement tool is in service and a passing calibration record has been entered in MES.\n\n**Step 3 — Automatic In-Process Torque Logging**\nDuring production, the torque tool automatically logs the applied torque value to MES for each safety-critical fastener cycle, linked to the unit serial number and workstation. The Operator is responsible for confirming the tool signal lamp or MES acknowledgement at each cycle; no manual entry is required for passing cycles.\n\n**St",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 2700,
+    "chunk_index": 6
+  },
+  {
+    "text": "manual entry is required for passing cycles.\n\n**Step 4 — Periodic Fastener Audit**\nAt the frequency defined in Control Plan FA-CP-04 (typically every 50th unit), the Quality Technician pulls the designated audit unit from the line or offline audit station and manually re-verifies torque on all safety-critical joints using a calibrated hand torque wrench. The calibrated hand tool ID must be recorded alongside the audit result.\n\n**Step 5 — Audit Result Entry**\nThe Quality Technician records the au",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 3150,
+    "chunk_index": 7
+  },
+  {
+    "text": "sult Entry**\nThe Quality Technician records the audit result — pass or fail, with actual torque value(s) — against the unit serial number in MES. The entry must be completed before the audit unit is released back to the production flow.\n\n**Step 6 — Audit Failure Response**\nIf the periodic fastener audit fails on any safety-critical joint:\n1. **Stop the line immediately.**\n2. **Quarantine all units built since the last passing audit.** Apply physical hold tags and update unit status to Quality Ho",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 3600,
+    "chunk_index": 8
+  },
+  {
+    "text": "cal hold tags and update unit status to Quality Hold in MES.\n3. **Follow SOP-QA-007** (Quality Hold and Containment Procedure) for suspect unit disposition, root-cause investigation, and containment actions.\n4. **Do not restart the line** until the Quality Engineer has reviewed the failure, authorised the corrective action, and provided written sign-off in MES. This requirement is unconditional — see Section 5.\n\n---\n\n## 5. Escalation Criteria\n\n| Condition | Escalation Action |\n|---|---|\n| Failed",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 4050,
+    "chunk_index": 9
+  },
+  {
+    "text": "Condition | Escalation Action |\n|---|---|\n| Failed safety-critical torque audit (any joint) | Immediate line stop; Quality Engineer sign-off mandatory before restart, regardless of production impact or schedule pressure |\n| Tool calibration failure at shift start | Tool tagged out; Maintenance Technician notified; production on affected station suspended until replacement tool is verified in MES |\n| [INSERT THRESHOLD] consecutive audit failures across separate units | Escalate to Plant Quality M",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 4500,
+    "chunk_index": 10
+  },
+  {
+    "text": "cross separate units | Escalate to Plant Quality Manager and notify Customer Quality if applicable |\n\n---\n\n## 6. Related Documents\n\n| Document | ID |\n|---|---|\n| Quality Hold and Containment Procedure | SOP-QA-007 |\n| Final Assembly Control Plan | FA-CP-04 |\n| Tool Calibration Log | [INSERT DOC ID / MES LOCATION] |\n| Site Lockout/Tagout Procedure | [INSERT DOC ID] |\n\n---\n\n*End of SOP-FA-019 Rev 6*",
+    "source": "SOP-FA-019-torque-verification-fastener-audit.md",
+    "doc_id": "SOP-FA-019-torque-verification-fastener-audit",
+    "char_start": 4950,
+    "chunk_index": 11
+  },
+  {
+    "text": "# SOP-QA-007: Quality Hold and Containment Procedure\n\n| Field | Detail |\n|---|---|\n| **Document ID** | SOP-QA-007 |\n| **Revision** | 4 |\n| **Effective Date** | 2025-09-18 |\n| **Area** | Trim / Final Assembly |\n| **Owner** | Quality Engineer |\n| **Approved By** | [INSERT NAME/TITLE] |\n| **ISA-95 Level** | Level 3 — Manufacturing Operations Management |\n\n---\n\n## 1. Scope\n\nThis procedure covers the identification, tagging, quarantine, and structured containment of suspect non-conforming product on",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 0,
+    "chunk_index": 0
+  },
+  {
+    "text": "containment of suspect non-conforming product on trim and final assembly lines. It applies whenever a detected defect has characteristics that suggest it may affect units beyond the single unit currently at station — for example, a supplier batch issue, fixture drift, tooling wear, or a repeated fastener failure pattern.\n\nThis procedure is invoked by reference from SOP-FA-014 (Unplanned Line Stoppage Response) and SOP-FA-019 (Torque Verification and Fastener Audit), among others.\n\n---\n\n## 2. Ro",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 450,
+    "chunk_index": 1
+  },
+  {
+    "text": "and Fastener Audit), among others.\n\n---\n\n## 2. Roles and Responsibilities\n\n| Role | Responsibility |\n|---|---|\n| **Operator** | Stops the line upon detecting a suspect defect; applies a red Quality Hold tag to the affected unit; moves the unit to the quarantine area if the line is to continue |\n| **Team Leader** | Notifies the Quality Technician immediately upon hold initiation; logs the hold event in MES with defect description and suspected cause |\n| **Quality Technician** | Determines contai",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 900,
+    "chunk_index": 2
+  },
+  {
+    "text": "use |\n| **Quality Technician** | Determines containment scope using MES traceability; coordinates physical quarantine of all suspect units; records inspection results per unit in MES |\n| **Quality Engineer** | Owns root cause analysis and equipment isolation decisions; approves final disposition of each quarantined unit; opens Non-Conformance Reports (NCRs) where required |\n\n---\n\n## 3. Trigger Conditions\n\n| Trigger | Notes |\n|---|---|\n| Defect detected that may extend beyond the unit currently a",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 1350,
+    "chunk_index": 3
+  },
+  {
+    "text": "tected that may extend beyond the unit currently at station | Examples: repeated occurrence of same defect type, supplier batch suspect, fixture drift detected, safety-critical non-conformance at any scale |\n\n---\n\n## 4. Step-by-Step Procedure\n\n**Step 1 — Operator Line Stop and Unit Tagging**\nUpon detecting a suspect defect, the Operator stops the line and applies a **red Quality Hold tag** to the affected unit. If the production line must continue operating, the Operator moves the tagged unit to",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 1800,
+    "chunk_index": 4
+  },
+  {
+    "text": "e operating, the Operator moves the tagged unit to the designated quarantine area before restarting. The Operator does not attempt to disposition, rework, or re-inspect the unit independently.\n\n**Step 2 — Team Leader Notification and MES Hold Log**\nThe Team Leader notifies the Quality Technician immediately — verbally and via [INSERT NOTIFICATION METHOD]. The Team Leader logs the hold event in MES, capturing:\n- Defect description\n- Suspected cause (if known)\n- Affected unit serial number(s)\n- Ti",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 2250,
+    "chunk_index": 5
+  },
+  {
+    "text": "e (if known)\n- Affected unit serial number(s)\n- Time of detection and workstation\n\n**Step 3 — Containment Scope Determination**\nThe Quality Technician uses the MES Traceability Module to pull the list of all units built since the last confirmed known-good check point, filtering by time window, batch number, or tool/fixture ID as appropriate to the defect type. This list defines the **suspect scope** — all units that may have been affected.\n\n**Step 4 — Physical Quarantine of Suspect Units**\nAll u",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 2700,
+    "chunk_index": 6
+  },
+  {
+    "text": "p 4 — Physical Quarantine of Suspect Units**\nAll units within the suspect scope are pulled from the production flow and moved to the designated quarantine area. Each unit receives a red Quality Hold tag and its MES status is updated to **Quality Hold**. Units may not be shipped, transferred to another line, or released to the customer while in hold status.\n\n**Step 5 — Equipment Isolation (if Applicable)**\nIf root cause investigation by the Quality Engineer identifies the defect as fixture- or eq",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 3150,
+    "chunk_index": 7
+  },
+  {
+    "text": "y Engineer identifies the defect as fixture- or equipment-related, the implicated fixture or equipment is isolated from production (tagged out and removed from service) until the root cause is corrected and verified. The Quality Engineer is responsible for this isolation decision.\n\n**Step 6 — Unit-Level Disposition**\nThe Quality Engineer reviews each quarantined unit and assigns one of the following dispositions, recorded in MES against the unit serial number:\n- **Release** — unit inspected and",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 3600,
+    "chunk_index": 8
+  },
+  {
+    "text": "serial number:\n- **Release** — unit inspected and confirmed conforming\n- **Rework** — unit requires correction; rework work order raised and tracked\n- **Scrap** — unit cannot be brought to conforming state; scrapped per site scrap procedure\n\n**Step 7 — Non-Conformance Report (NCR)**\nA Non-Conformance Report (NCR) is opened on form QA-NCR-01 in any of the following cases:\n- The containment scope exceeds **5 units**\n- The root cause is supplier-related (batch or incoming material)\n- The defect is",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 4050,
+    "chunk_index": 9
+  },
+  {
+    "text": "ated (batch or incoming material)\n- The defect is classified as safety-related (any scope)\n\nThe Quality Engineer is the owner of the NCR and is responsible for completing root cause analysis and corrective action sections within [INSERT TIMEFRAME].\n\n---\n\n## 5. Escalation Criteria\n\n| Condition | Escalation Action |\n|---|---|\n| Containment scope exceeds **20 units** | Plant Quality Manager notified within **1 hour** of scope determination |\n| Any safety-related defect (any scope) | Plant Quality M",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 4500,
+    "chunk_index": 10
+  },
+  {
+    "text": "afety-related defect (any scope) | Plant Quality Manager notified within **1 hour**; customer quality notification per [INSERT CUSTOMER NOTIFICATION PROCEDURE] if applicable |\n| NCR root cause not closed within [INSERT THRESHOLD] days | Escalated to Plant Quality Manager for corrective action review |\n\n---\n\n## 6. Related Documents\n\n| Document | ID |\n|---|---|\n| Non-Conformance Report Form | QA-NCR-01 |\n| MES Traceability Module Guide | [INSERT DOC ID / MES LOCATION] |\n| Unplanned Line Stoppage R",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 4950,
+    "chunk_index": 11
+  },
+  {
+    "text": "C ID / MES LOCATION] |\n| Unplanned Line Stoppage Response | SOP-FA-014 |\n| Torque Verification and Fastener Audit | SOP-FA-019 |\n\n---\n\n*End of SOP-QA-007 Rev 4*",
+    "source": "SOP-QA-007-quality-hold-containment.md",
+    "doc_id": "SOP-QA-007-quality-hold-containment",
+    "char_start": 5400,
+    "chunk_index": 12
+  },
+  {
+    "text": "# SOP-TR-031: Door Trim and Interior Panel Fitment Changeover\n\n| Field | Detail |\n|---|---|\n| **Document ID** | SOP-TR-031 |\n| **Revision** | 5 |\n| **Effective Date** | 2025-11-02 |\n| **Area** | Trim |\n| **Owner** | Trim Team Leader |\n| **Approved By** | [INSERT NAME/TITLE] |\n| **ISA-95 Level** | Level 3 — Manufacturing Operations Management |\n\n---\n\n## 1. Scope\n\nThis procedure covers the full changeover sequence when switching interior trim variant on the final trim line — for example, transitio",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 0,
+    "chunk_index": 0
+  },
+  {
+    "text": "nt on the final trim line — for example, transitioning between cloth and leather door card builds. It applies to both scheduled variant changeovers (per the sequencing schedule) and unplanned variant mix changes communicated by Production Control.\n\nThis procedure does not cover panel repair, rework of incorrectly fitted trim, or changeovers involving structural body components.\n\n---\n\n## 2. Roles and Responsibilities\n\n| Role | Responsibility |\n|---|---|\n| **Line Operator** | Clears outgoing varia",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 450,
+    "chunk_index": 1
+  },
+  {
+    "text": "-|---|\n| **Line Operator** | Clears outgoing variant parts from lineside staging; configures fixtures and jig settings for the incoming variant per the changeover card |\n| **Trim Team Leader** | Owns the changeover window; confirms changeover timing from the sequencing schedule; signs off completion in MES; escalates if the changeover window is exceeded |\n| **Material Handler** | Delivers the new variant kit to the designated staging location; verifies kit contents match the build sheet before h",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 900,
+    "chunk_index": 2
+  },
+  {
+    "text": "rifies kit contents match the build sheet before handover to the Operator |\n| **Quality Technician** | Performs first-off inspection against Control Plan TR-CP-12; signs off in MES upon a passing first-off; authorises hold and re-adjust cycle on failure |\n\n---\n\n## 3. Trigger Conditions\n\n| Trigger | Notes |\n|---|---|\n| Scheduled variant changeover | Per the sequencing schedule provided by Production Control |\n| Unplanned variant mix change | Communicated by Production Control; treated identically",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 1350,
+    "chunk_index": 3
+  },
+  {
+    "text": "nicated by Production Control; treated identically to a scheduled changeover for procedural purposes |\n\n---\n\n## 4. Step-by-Step Procedure\n\n**Step 1 — Changeover Time Slot Confirmation**\nThe Trim Team Leader confirms the changeover time slot and incoming variant designation from the sequencing schedule before initiating any physical changeover activity. For unplanned variant changes, Production Control provides the variant designation and target start time in writing (via [INSERT COMMUNICATION ME",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 1800,
+    "chunk_index": 4
+  },
+  {
+    "text": "tart time in writing (via [INSERT COMMUNICATION METHOD — e.g., MES work order / radio / printed schedule]).\n\n**Step 2 — Outgoing Variant Clearance**\nThe Operator clears all outgoing variant parts, clips, and consumables from lineside staging racks. Parts are returned to the designated storage location or handed to the Material Handler. Staging racks must be empty and confirmed clear before incoming variant kit is delivered to the same location.\n\n**Step 3 — Incoming Variant Kit Delivery and Verif",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 2250,
+    "chunk_index": 5
+  },
+  {
+    "text": "**Step 3 — Incoming Variant Kit Delivery and Verification**\nThe Material Handler delivers the new variant kit to the designated staging location. Before handing over to the Operator, the Material Handler verifies that the kit contents (part numbers, quantities, and colour/grade where applicable) match the build sheet for the incoming variant. Any discrepancy is reported to the Trim Team Leader before the kit is accepted at line.\n\n**Step 4 — Fixture and Jig Reconfiguration**\nThe Operator updates",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 2700,
+    "chunk_index": 6
+  },
+  {
+    "text": "re and Jig Reconfiguration**\nThe Operator updates fixture and jig settings per the changeover card (TR-031-A) for the incoming variant. Settings include, but are not limited to:\n- Clip engagement torque settings (where the tool is adjustable)\n- Panel location datum stops\n- Any variant-specific jig inserts or adapters\n\nThe Operator confirms each setting change against the changeover card before proceeding to first-off.\n\n**Step 5 — First-Off Inspection**\nThe Quality Technician performs a first-off",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 3150,
+    "chunk_index": 7
+  },
+  {
+    "text": "tion**\nThe Quality Technician performs a first-off inspection on the first complete unit built with the new variant configuration. The inspection is conducted against Control Plan TR-CP-12 and includes, as a minimum:\n- Clip engagement (full engagement confirmed at all clip points)\n- Panel gap and flush (within the tolerance specified in the control plan)\n- Fastener torque (where torque tools are used in trim fitment)\n\n**Step 6 — First-Off Pass: Line Resumption**\nIf the first-off unit passes all",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 3600,
+    "chunk_index": 8
+  },
+  {
+    "text": "ine Resumption**\nIf the first-off unit passes all criteria, the Quality Technician signs off the result in MES (including the unit serial number, inspector ID, and timestamp). The Trim Team Leader authorises resumption of normal takt. The signed-off first-off unit proceeds as a conforming unit.\n\n**Step 7 — First-Off Failure: Hold and Re-Adjust**\nIf the first-off unit fails any inspection criterion:\n1. The line is held; do not produce further units with the current fixture configuration.\n2. The O",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 4050,
+    "chunk_index": 9
+  },
+  {
+    "text": "s with the current fixture configuration.\n2. The Operator re-adjusts the fixture or jig setting per the changeover card guidance for the failed criterion.\n3. A new first-off unit is produced and re-inspected by the Quality Technician per Step 5.\n4. If **two consecutive first-off units fail**, escalate to the Quality Engineer per Section 5 before any further adjustment attempts.\n\n---\n\n## 5. Escalation Criteria\n\n| Condition | Escalation Action |\n|---|---|\n| Changeover duration exceeds **8 minutes*",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 4500,
+    "chunk_index": 10
+  },
+  {
+    "text": "--|---|\n| Changeover duration exceeds **8 minutes** from start to Trim Team Leader sign-off | Trim Team Leader notified (if not already on scene); cause logged in MES against the changeover event |\n| Two consecutive first-off failures | Escalate to Quality Engineer; line held pending Quality Engineer review of fixture setup and changeover card accuracy |\n| Kit discrepancy identified in Step 3 | Trim Team Leader notified; Production Control informed; changeover does not proceed until correct kit",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 4950,
+    "chunk_index": 11
+  },
+  {
+    "text": "ed; changeover does not proceed until correct kit is confirmed at lineside |\n\n---\n\n## 6. Related Documents\n\n| Document | ID |\n|---|---|\n| Trim Changeover Card | TR-031-A |\n| Trim Control Plan | TR-CP-12 |\n\n---\n\n*End of SOP-TR-031 Rev 5*",
+    "source": "SOP-TR-031-trim-changeover.md",
+    "doc_id": "SOP-TR-031-trim-changeover",
+    "char_start": 5400,
+    "chunk_index": 12
+  }
+]
