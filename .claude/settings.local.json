@@ -3,7 +3,10 @@
     "allow": [
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Skill(claude-api)",
+      "Skill(claude-api:*)",
+      "Bash(python -c \"from app.tools import ALL_TOOLS; print\\('tools.py OK —', [t.name for t in ALL_TOOLS]\\)\")"
     ]
   }
 }
