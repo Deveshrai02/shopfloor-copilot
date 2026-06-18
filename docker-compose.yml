@@ -1,0 +1,46 @@
+services:
+
+  # ── Mock MES API ─────────────────────────────────────────────────────────────
+  mes-api:
+    build: .
+    command: uvicorn app.mock_mes_api:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/lines')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ── Streamlit chat UI ─────────────────────────────────────────────────────────
+  streamlit:
+    build: .
+    # Build the FAISS index if it doesn't exist, then launch Streamlit.
+    # The index is written to data/index/ inside the container; on subsequent
+    # restarts the -f check skips the rebuild, keeping startup fast.
+    command: >
+      sh -c "
+        if [ ! -f data/index/faiss.index ]; then
+          echo '[startup] Building FAISS index from SOP documents...' &&
+          python -m app.rag;
+        else
+          echo '[startup] FAISS index already present, skipping build.';
+        fi &&
+        streamlit run app/streamlit_app.py
+          --server.address 0.0.0.0
+          --server.port 8501
+          --server.headless true
+      "
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MES_BASE_URL=http://mes-api:8000
+    depends_on:
+      mes-api:
+        condition: service_healthy

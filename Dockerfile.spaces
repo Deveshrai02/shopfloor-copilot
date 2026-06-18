@@ -1,0 +1,50 @@
+# Dockerfile for Hugging Face Spaces (single-container, port 7860)
+#
+# Key differences from the local Dockerfile / docker-compose setup:
+#   - Both services (MES API + Streamlit) run in ONE container.
+#     Spaces does not support docker-compose; entrypoint.sh starts uvicorn
+#     in the background before launching Streamlit.
+#   - FAISS index is built at IMAGE BUILD TIME (not startup) so the Space
+#     loads instantly on first visit.
+#   - Streamlit is bound to port 7860, which is the port Spaces exposes.
+#   - ANTHROPIC_API_KEY is injected at runtime as a Space secret — it is
+#     never present in this file or baked into the image.
+#   - A non-root user is created; Spaces rejects images that run as root.
+
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    # MES API runs on localhost inside the container — no external exposure needed
+    MES_BASE_URL=http://localhost:8000
+
+WORKDIR /app
+
+# ── Dependencies (cached layer) ───────────────────────────────────────────────
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# ── Application code ──────────────────────────────────────────────────────────
+COPY app/       ./app/
+COPY data/sops/ ./data/sops/
+
+# ── Build the FAISS index at image build time ─────────────────────────────────
+# Doing this here means the Space starts instantly instead of making the user
+# wait 30-60 s for embedding on cold start. The SOP files are static, so the
+# index is always valid for the image it was built from.
+RUN python -m app.rag
+
+# ── Non-root user required by Hugging Face Spaces ────────────────────────────
+RUN useradd -m -u 1000 hfuser && chown -R hfuser /app
+USER hfuser
+
+# ── Entrypoint ────────────────────────────────────────────────────────────────
+COPY entrypoint.sh /entrypoint.sh
+# chown before switching user above already ran; this runs as root — re-own
+USER root
+RUN chmod +x /entrypoint.sh && chown hfuser /entrypoint.sh
+USER hfuser
+
+EXPOSE 7860
+
+ENTRYPOINT ["/entrypoint.sh"]

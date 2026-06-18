@@ -1,13 +1,17 @@
 
 
 import json
+import os
 
 import httpx
 from langchain_core.tools import tool
 
 from app.rag import retrieve_simple
 
-_MES_BASE = "http://localhost:8000"
+# In Docker Compose the MES API is reachable at http://mes-api:8000.
+# Locally it runs on localhost. MES_BASE_URL env var lets docker-compose.yml
+# override the default without touching code.
+_MES_BASE = os.getenv("MES_BASE_URL", "http://localhost:8000")
 
 
 @tool

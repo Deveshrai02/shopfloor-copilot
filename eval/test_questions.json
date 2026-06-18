@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1,
+    "category": "sop",
+    "question": "FA-01 has been down for 20 minutes with no fault identified. What should I do and who do I need to notify?",
+    "expected_tool": "retrieve_sop",
+    "correct_answer_should_reference": "SOP-FA-014: escalation to Production Supervisor at 15 minutes; 45-minute threshold triggers Plant Manager and formal incident ticket"
+  },
+  {
+    "id": 2,
+    "category": "sop",
+    "question": "We've had two consecutive first-off failures after a trim changeover. What's the next step?",
+    "expected_tool": "retrieve_sop",
+    "correct_answer_should_reference": "SOP-TR-031: two consecutive first-off failures require escalation to Quality Engineer; line held pending QE review"
+  },
+  {
+    "id": 3,
+    "category": "sop",
+    "question": "Who is responsible for signing off on the first-off inspection after a variant changeover on the trim line?",
+    "expected_tool": "retrieve_sop",
+    "correct_answer_should_reference": "SOP-TR-031: Quality Technician performs and signs off first-off inspection in MES; Trim Team Leader authorises line resumption"
+  },
+  {
+    "id": 4,
+    "category": "sop",
+    "question": "At what point do we need to notify the Plant Quality Manager during a quality hold?",
+    "expected_tool": "retrieve_sop",
+    "correct_answer_should_reference": "SOP-QA-007: containment scope exceeds 20 units OR any safety-related defect → Plant Quality Manager within 1 hour"
+  },
+  {
+    "id": 5,
+    "category": "sop",
+    "question": "When must an NCR be opened during a quality containment event?",
+    "expected_tool": "retrieve_sop",
+    "correct_answer_should_reference": "SOP-QA-007: NCR required when scope > 5 units, supplier-related root cause, or any safety-related defect"
+  },
+  {
+    "id": 6,
+    "category": "sop",
+    "question": "What steps are required before any personnel work on energised equipment during a line stoppage?",
+    "expected_tool": "retrieve_sop",
+    "correct_answer_should_reference": "SOP-FA-014: Maintenance Technician must apply Lockout-Tagout (LOTO) per SOP-MT-022 before working on energised or pressurised equipment"
+  },
+  {
+    "id": 7,
+    "category": "sop",
+    "question": "What safety checks are mandatory before handling a high-voltage EV battery pack?",
+    "expected_tool": "retrieve_sop",
+    "correct_answer_should_reference": "SOP-EV-002: PPE, HV isolation checks, interlock verification, and traceability scan steps before handling HV packs"
+  },
+  {
+    "id": 8,
+    "category": "sop",
+    "question": "How many units off restart must the Team Leader inspect before normal takt resumes after a line stoppage?",
+    "expected_tool": "retrieve_sop",
+    "correct_answer_should_reference": "SOP-FA-014: first 3 units after restart subject to visual quality check by Team Leader before normal takt resumes"
+  },
+  {
+    "id": 9,
+    "category": "live_data",
+    "question": "What is the current OEE on FA-01?",
+    "expected_tool": "get_live_line_data",
+    "correct_answer_should_reference": "Live OEE figure for FA-01 including availability, performance, and quality sub-metrics from the MES API"
+  },
+  {
+    "id": 10,
+    "category": "live_data",
+    "question": "Show me the latest quality defect breakdown for TRIM-02.",
+    "expected_tool": "get_live_line_data",
+    "correct_answer_should_reference": "Defect types, counts, and quality pass rate for TRIM-02 from the MES quality endpoint"
+  },
+  {
+    "id": 11,
+    "category": "live_data",
+    "question": "What downtime events has EV-BAT had in the last 24 hours?",
+    "expected_tool": "get_live_line_data",
+    "correct_answer_should_reference": "List of downtime events with reason codes, durations, and total downtime minutes for EV-BAT"
+  },
+  {
+    "id": 12,
+    "category": "live_data",
+    "question": "How many units has FA-02 produced this shift and what is its OEE?",
+    "expected_tool": "get_live_line_data",
+    "correct_answer_should_reference": "FA-02 units_produced and oee_pct from the MES OEE endpoint"
+  },
+  {
+    "id": 13,
+    "category": "live_data",
+    "question": "What is the quality pass rate on TRIM-01 right now?",
+    "expected_tool": "get_live_line_data",
+    "correct_answer_should_reference": "quality_pass_rate_pct for TRIM-01 from the MES quality endpoint"
+  },
+  {
+    "id": 14,
+    "category": "live_data",
+    "question": "Has EV-BAT had any unscheduled maintenance stops today?",
+    "expected_tool": "get_live_line_data",
+    "correct_answer_should_reference": "Downtime events for EV-BAT filtered for UNSCHD-MAINT reason code in the last 24 hours"
+  },
+  {
+    "id": 15,
+    "category": "live_data",
+    "question": "What are the most common defect types on FA-01 this shift?",
+    "expected_tool": "get_live_line_data",
+    "correct_answer_should_reference": "defect_breakdown list from the FA-01 quality endpoint, ranked by count"
+  },
+  {
+    "id": 16,
+    "category": "live_data",
+    "question": "How does TRIM-01's OEE compare to its availability and performance sub-metrics?",
+    "expected_tool": "get_live_line_data",
+    "correct_answer_should_reference": "oee_pct, availability_pct, and performance_pct for TRIM-01 from the MES OEE endpoint"
+  },
+  {
+    "id": 17,
+    "category": "ticket",
+    "question": "Raise a high severity ticket for EV-BAT — HV connector not seating correctly on three consecutive units.",
+    "expected_tool": "create_incident_ticket",
+    "correct_answer_should_reference": "Ticket created with line_id=EV-BAT, severity=high, ticket_id returned, status=open"
+  },
+  {
+    "id": 18,
+    "category": "ticket",
+    "question": "Log a medium severity ticket for TRIM-01: repeated clip engagement failures at the door trim station.",
+    "expected_tool": "create_incident_ticket",
+    "correct_answer_should_reference": "Ticket created with line_id=TRIM-01, severity=medium, ticket_id returned"
+  },
+  {
+    "id": 19,
+    "category": "ticket",
+    "question": "Please open a low severity ticket for FA-02 — minor surface scratches appearing on outgoing units, suspected tooling wear.",
+    "expected_tool": "create_incident_ticket",
+    "correct_answer_should_reference": "Ticket created with line_id=FA-02, severity=low, ticket_id returned"
+  },
+  {
+    "id": 20,
+    "category": "out_of_scope",
+    "question": "What is OEE and how is it calculated?",
+    "expected_tool": "none",
+    "correct_answer_should_reference": "General explanation of OEE = Availability × Performance × Quality; no tool call needed as this is general manufacturing knowledge"
+  },
+  {
+    "id": 21,
+    "category": "out_of_scope",
+    "question": "What's the weather forecast for the plant location today?",
+    "expected_tool": "none",
+    "correct_answer_should_reference": "Agent should decline or state it cannot answer weather questions; no tool call should be made"
+  },
+  {
+    "id": 22,
+    "category": "out_of_scope",
+    "question": "Can you write me a Python script to parse CSV files?",
+    "expected_tool": "none",
+    "correct_answer_should_reference": "Agent should decline politely and stay in its shopfloor domain; no manufacturing tool should be invoked"
+  }
+]

@@ -1,0 +1,28 @@
+# Python runtime artefacts
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+
+# Virtual environment — dependencies are installed inside the image via pip
+.venv/
+venv/
+env/
+
+# Secrets — never bake the API key into an image layer
+.env
+
+# Pre-built index — rebuilt at container startup from the SOP source files
+data/index/
+
+# Eval output — not needed at runtime
+eval/results.json
+
+# Spaces-specific files not needed in the local Docker image
+Dockerfile.spaces
+entrypoint.sh
+
+# Dev / editor noise
+.git/
+.gitignore
+*.md
+.DS_Store

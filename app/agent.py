@@ -91,6 +91,32 @@ _graph = _builder.compile()
 # ---------------------------------------------------------------------------
 
 
+def run_agent_traced(user_message: str) -> tuple[str, list[str]]:
+    """
+    Run the agent and return (final_answer, tools_called).
+
+    tools_called is a deduplicated list of tool names in the order they were
+    first invoked, extracted by scanning all AIMessages in the final state for
+    tool_call entries. Used by the eval harness to measure tool-selection accuracy
+    without modifying the core graph structure.
+    """
+    initial_state = {"messages": [HumanMessage(content=user_message)]}
+    final_state = _graph.invoke(initial_state)
+
+    messages = final_state["messages"]
+    tools_called: list[str] = []
+    seen: set[str] = set()
+    for msg in messages:
+        for tc in getattr(msg, "tool_calls", []):
+            name = tc["name"] if isinstance(tc, dict) else tc.get("name", "")
+            if name and name not in seen:
+                tools_called.append(name)
+                seen.add(name)
+
+    answer = messages[-1].content
+    return answer, tools_called
+
+
 def run_agent(user_message: str) -> str:
     """
     Run the agent on a single user message and return the final text response.

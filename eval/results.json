@@ -1,0 +1,338 @@
+{
+  "run_at": "2026-06-18T15:24:12.099440+00:00",
+  "model": "claude-haiku-4-5",
+  "total_questions": 22,
+  "correct": 22,
+  "accuracy_pct": 100.0,
+  "category_breakdown": {
+    "sop": {
+      "label": "SOP / Document",
+      "correct": 8,
+      "total": 8,
+      "accuracy_pct": 100.0
+    },
+    "live_data": {
+      "label": "Live MES Data",
+      "correct": 8,
+      "total": 8,
+      "accuracy_pct": 100.0
+    },
+    "ticket": {
+      "label": "Ticket Creation",
+      "correct": 3,
+      "total": 3,
+      "accuracy_pct": 100.0
+    },
+    "out_of_scope": {
+      "label": "Out-of-Scope",
+      "correct": 3,
+      "total": 3,
+      "accuracy_pct": 100.0
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "category": "sop",
+      "question": "FA-01 has been down for 20 minutes with no fault identified. What should I do and who do I need to notify?",
+      "expected_tool": "retrieve_sop",
+      "tools_called": [
+        "retrieve_sop",
+        "get_live_line_data"
+      ],
+      "match": true,
+      "answer": "Based on the SOP and the current situation:\n\n## **Immediate Actions:**\n\n**You are now at the 15-minute escalation threshold.** According to **SOP-FA-014-unplanned-line-stoppage-response.md**:\n\n1. **Notify your Production Supervisor immediately** — both verbally and via MES alert. The Production Supervisor owns all escalations beyond 15 minutes.\n\n2. **Continue diagnostics** while waiting for Supervisor:\n   - Check for safety interlocks or e-stop activation\n   - Verify PLC/sensor status (FA-01 has had electrical faults recently)\n   - Inspect fixtures and tooling for mechanical issues\n   - Document the downtime reason code in MES (do **not** leave it blank)\n\n3. **Do NOT attempt to restart** until the root cause is identified and logged.\n\n## **Watch for Further Escalation:**\n\n- **45+ minutes:** Escalates to Plant Manager; formal incident ticket must be opened\n- **Quality-related:** If this involves fasteners/torque, Quality Engineer sign-off is required before restart\n\n## **Context from Last 24 Hours:**\nFA-01 has had 118.6 minutes of downtime across 7 events, including electrical, mechanical, and maintenance issues. The pattern suggests you may want to flag systemic reliability concerns to your Supervisor.\n\n**Action now:** Contact your Production Supervisor with the current downtime duration and that no fault code has been identified yet.",
+      "hint": "SOP-FA-014: escalation to Production Supervisor at 15 minutes; 45-minute threshold triggers Plant Manager and formal incident ticket",
+      "elapsed_s": 11.59,
+      "error": null
+    },
+    {
+      "id": 2,
+      "category": "sop",
+      "question": "We've had two consecutive first-off failures after a trim changeover. What's the next step?",
+      "expected_tool": "retrieve_sop",
+      "tools_called": [
+        "retrieve_sop"
+      ],
+      "match": true,
+      "answer": "**Clear escalation path:**\n\nPer **SOP-TR-031-trim-changeover**, when you have **two consecutive first-off failures**:\n\n1. **Stop further adjustment attempts** — do not try to tune the fixture again on your own.\n2. **Escalate to the Quality Engineer immediately** — they must review the fixture setup and changeover card accuracy.\n3. **Hold the line** pending the Quality Engineer's assessment.\n\nThis is a defined escalation threshold in the SOP, so the Quality Engineer needs to be on scene to diagnose whether the issue is:\n- Fixture configuration misalignment\n- Changeover card inaccuracy\n- Or something else in the setup\n\n**Next action:** Contact your Quality Engineer now and inform them of the two consecutive first-off failures. Have the changeover card, fixture documentation, and the failed units ready for their review.\n\nWhich trim line are you on? If you need to formally log this as an incident, I can help raise a ticket.",
+      "hint": "SOP-TR-031: two consecutive first-off failures require escalation to Quality Engineer; line held pending QE review",
+      "elapsed_s": 7.99,
+      "error": null
+    },
+    {
+      "id": 3,
+      "category": "sop",
+      "question": "Who is responsible for signing off on the first-off inspection after a variant changeover on the trim line?",
+      "expected_tool": "retrieve_sop",
+      "tools_called": [
+        "retrieve_sop"
+      ],
+      "match": true,
+      "answer": "Based on **SOP-TR-031: Door Trim and Interior Panel Fitment Changeover**, the **Quality Technician** is responsible for performing the first-off inspection after a variant changeover on the trim line.\n\nThe Quality Technician:\n- Conducts the first-off inspection on the first complete unit built with the new variant configuration\n- Inspects against Control Plan TR-CP-12\n- Checks minimum requirements: clip engagement, panel gap and flush, and fastener torque\n\nThe **Trim Team Leader** owns the changeover window and signs off completion in MES, but the actual first-off inspection sign-off is the Quality Technician's responsibility.",
+      "hint": "SOP-TR-031: Quality Technician performs and signs off first-off inspection in MES; Trim Team Leader authorises line resumption",
+      "elapsed_s": 15.85,
+      "error": null
+    },
+    {
+      "id": 4,
+      "category": "sop",
+      "question": "At what point do we need to notify the Plant Quality Manager during a quality hold?",
+      "expected_tool": "retrieve_sop",
+      "tools_called": [
+        "retrieve_sop"
+      ],
+      "match": true,
+      "answer": "Based on **SOP-QA-007-quality-hold-containment.md**, the Plant Quality Manager notification triggers are:\n\n1. **Safety-related defect (any scope)** — Notify the Plant Quality Manager within **1 hour**. Customer quality notification follows per your customer notification procedure if applicable.\n\n2. **NCR root cause not closed within the specified threshold** — Escalate to the Plant Quality Manager for corrective action review.\n\nAdditionally, per **SOP-FA-014** (Unplanned Line Stoppage Response), if a quality-related stoppage occurs at any duration, the Quality Engineer requires sign-off before the line restarts if safety-critical fasteners are involved — which would also trigger escalation paths.\n\n**Key takeaway:** Any safety-related defect requires notification to the Plant Quality Manager within 1 hour, regardless of how many units are affected. For other quality issues, escalation occurs when root cause cannot be closed within the defined threshold.\n\nDo you have a specific quality issue on a line that you're evaluating?",
+      "hint": "SOP-QA-007: containment scope exceeds 20 units OR any safety-related defect → Plant Quality Manager within 1 hour",
+      "elapsed_s": 5.05,
+      "error": null
+    },
+    {
+      "id": 5,
+      "category": "sop",
+      "question": "When must an NCR be opened during a quality containment event?",
+      "expected_tool": "retrieve_sop",
+      "tools_called": [
+        "retrieve_sop"
+      ],
+      "match": true,
+      "answer": "Based on **SOP-QA-007-quality-hold-containment.md**, an **NCR must be opened** when a quality containment event meets **either** of these conditions:\n\n1. **Containment scope exceeds 20 units** — Any defect affecting more than 20 units requires an NCR.\n2. **Any safety-related defect** — Regardless of scope (even 1 unit), a safety defect must have an NCR.\n\n**Key role responsibility:**\n- The **Quality Engineer** is responsible for opening the NCR and owns the root cause analysis and corrective action documentation.\n\n**Escalation triggers:**\n- If containment exceeds 20 units → Plant Quality Manager notified within **1 hour**\n- If a safety-related defect is found → Plant Quality Manager notified within **1 hour**\n\nIs there a specific containment event on your line right now that you need to assess against these criteria?",
+      "hint": "SOP-QA-007: NCR required when scope > 5 units, supplier-related root cause, or any safety-related defect",
+      "elapsed_s": 4.7,
+      "error": null
+    },
+    {
+      "id": 6,
+      "category": "sop",
+      "question": "What steps are required before any personnel work on energised equipment during a line stoppage?",
+      "expected_tool": "retrieve_sop",
+      "tools_called": [
+        "retrieve_sop"
+      ],
+      "match": true,
+      "answer": "Based on the SOP knowledge base, here are the required steps before any personnel work on energised equipment during a line stoppage:\n\n## **Lockout-Tagout (LOTO) Procedure — SOP-MT-022**\n\nAccording to **SOP-FA-014 (Unplanned Line Stoppage Response)**, the key requirement is:\n\n**Before performing any work on energised, pressurised, or moving equipment, the Maintenance Technician must apply Lockout-Tagout (LOTO) per SOP-MT-022.**\n\n### Key Points:\n\n✓ **LOTO must be applied first** — before any work begins on the equipment  \n✓ **Only the Maintenance Technician** performs the LOTO application  \n✓ **No other personnel may work on or around the isolated equipment** while LOTO is in effect  \n✓ **Full SOP-MT-022 must be followed** for proper lockout and restoration procedures\n\nFor detailed step-by-step LOTO instructions (energy source identification, lock application, verification steps, etc.), refer to **SOP-MT-022** directly.\n\n---\n\n**Is there a specific line stoppage currently occurring, or do you need clarification on any other aspect of the procedure?**",
+      "hint": "SOP-FA-014: Maintenance Technician must apply Lockout-Tagout (LOTO) per SOP-MT-022 before working on energised or pressurised equipment",
+      "elapsed_s": 6.45,
+      "error": null
+    },
+    {
+      "id": 7,
+      "category": "sop",
+      "question": "What safety checks are mandatory before handling a high-voltage EV battery pack?",
+      "expected_tool": "retrieve_sop",
+      "tools_called": [
+        "retrieve_sop"
+      ],
+      "match": true,
+      "answer": "Based on **SOP-EV-002: EV Battery Pack Handling and High-Voltage Isolation**, here are the mandatory safety checks before handling a high-voltage EV battery pack:\n\n## Key Requirements:\n\n### 1. **HV Certification Confirmation**\n   - Verify the assigned operator holds **current HV certification**\n   - Perform a badge check at the station\n   - **Operators with expired HV certification must not handle packs**\n\n### 2. **HV Isolation Verification**\n   - Complete isolation verification before any pack movement, lifting, or installation\n   - This is mandatory for **every occurrence without exception**\n\n### 3. **Visual Inspection for Faults**\n   - Check for **suspected HV system faults**, which include:\n     - Unexpected indicator states\n     - Unusual sounds from the pack\n     - Unusual smells\n     - Heat from the pack\n\n## Critical Note:\nThe SOP emphasizes that **schedule pressure, production targets, and staffing constraints do not override any step in this procedure.** Safety is non-negotiable.\n\nIf you encounter a suspected HV system fault (unusual indicators, sounds, smells, or heat), **do not proceed** — isolate the pack and escalate immediately.\n\nIs there a specific aspect of HV battery handling or a particular concern on your line right now?",
+      "hint": "SOP-EV-002: PPE, HV isolation checks, interlock verification, and traceability scan steps before handling HV packs",
+      "elapsed_s": 6.25,
+      "error": null
+    },
+    {
+      "id": 8,
+      "category": "sop",
+      "question": "How many units off restart must the Team Leader inspect before normal takt resumes after a line stoppage?",
+      "expected_tool": "retrieve_sop",
+      "tools_called": [
+        "retrieve_sop"
+      ],
+      "match": true,
+      "answer": "**Answer: The Team Leader must inspect the first 3 units produced after a line restart before normal takt resumes.**\n\nAccording to **SOP-FA-014-unplanned-line-stoppage-response.md**:\n\n> \"The first **3 units** produced after restart are subject to a visual quality check by the Team Leader before normal takt resumes. Any anomaly on the first-off units triggers re-entry to SOP-QA-007.\"\n\nThis first-unit verification is a critical control to catch any defects introduced during the stoppage event. If any anomalies are detected on these restart units, the process escalates to the quality hold procedure (SOP-QA-007).",
+      "hint": "SOP-FA-014: first 3 units after restart subject to visual quality check by Team Leader before normal takt resumes",
+      "elapsed_s": 5.73,
+      "error": null
+    },
+    {
+      "id": 9,
+      "category": "live_data",
+      "question": "What is the current OEE on FA-01?",
+      "expected_tool": "get_live_line_data",
+      "tools_called": [
+        "get_live_line_data"
+      ],
+      "match": true,
+      "answer": "**FA-01 OEE Summary (as of 15:23):**\n\n- **Overall OEE: 73.4%**\n- **Availability: 82.1%** (downtime impact)\n- **Performance: 89.5%** (speed loss)\n- **Quality: 99.9%** (virtually zero defects)\n\n**Production status:**\n- Units produced: 284 / 380 target\n- Currently tracking below shift target due to availability losses\n\nThe availability metric suggests recent downtime on the line. Would you like me to pull the downtime details or check the quality/defect data?",
+      "hint": "Live OEE figure for FA-01 including availability, performance, and quality sub-metrics from the MES API",
+      "elapsed_s": 3.38,
+      "error": null
+    },
+    {
+      "id": 10,
+      "category": "live_data",
+      "question": "Show me the latest quality defect breakdown for TRIM-02.",
+      "expected_tool": "get_live_line_data",
+      "tools_called": [
+        "get_live_line_data"
+      ],
+      "match": true,
+      "answer": "**TRIM-02 Quality Report** — *as of 15:23 today*\n\n| Metric | Value |\n|--------|-------|\n| **Units Inspected** | 353 |\n| **Total Defects** | 8 |\n| **Pass Rate** | 97.72% |\n\n**Defect Breakdown:**\n- **Panel misalignment**: 5 units\n- **Incorrect variant fitted**: 3 units\n\nOverall quality is solid at 97.72%. The panel misalignment issues are the primary concern (5 units). If you'd like to investigate the root cause or need guidance on containment, let me know and I can pull the relevant SOP.",
+      "hint": "Defect types, counts, and quality pass rate for TRIM-02 from the MES quality endpoint",
+      "elapsed_s": 4.3,
+      "error": null
+    },
+    {
+      "id": 11,
+      "category": "live_data",
+      "question": "What downtime events has EV-BAT had in the last 24 hours?",
+      "expected_tool": "get_live_line_data",
+      "tools_called": [
+        "get_live_line_data"
+      ],
+      "match": true,
+      "answer": "**EV-BAT Downtime Summary (Last 24 Hours)**\n\n**Total downtime:** 55.8 minutes across 8 events\n\n| Event ID | Start Time | Duration | Reason | Status |\n|---|---|---|---|---|\n| DT-1AFDB7B8 | 17:22 | 11.0 min | Scheduled preventive maintenance | ✓ Resolved |\n| DT-EA0B7F31 | 18:53 | 1.0 min | Material shortage — lineside stock depleted | ✓ Resolved |\n| DT-6F5A12B0 | 18:56 | 8.6 min | Variant changeover | ✓ Resolved |\n| DT-B0DCCBC1 | 21:56 | 4.5 min | Utilities fault — compressed air / power dip | ✓ Resolved |\n| DT-5C8766DA | 00:41 | 8.1 min | Utilities fault — compressed air / power dip | ✓ Resolved |\n| DT-5C002107 | 01:43 | 5.5 min | Quality hold — suspect units quarantined | ✓ Resolved |\n| DT-BE84C582 | 06:15 | 11.4 min | Electrical fault — PLC or sensor | ✓ Resolved |\n| DT-4BAB5AFF | 10:53 | 5.7 min | Utilities fault — compressed air / power dip | ✓ Resolved |\n\n**Key observations:**\n- All events resolved\n- **Pattern:** Three utilities faults (compressed air/power) — may indicate a systemic issue\n- Longest single event: 11.4 min (electrical), followed by 11.0 min (scheduled maintenance)\n\nWould you like me to check current line performance or escalate any of these issues?",
+      "hint": "List of downtime events with reason codes, durations, and total downtime minutes for EV-BAT",
+      "elapsed_s": 4.52,
+      "error": null
+    },
+    {
+      "id": 12,
+      "category": "live_data",
+      "question": "How many units has FA-02 produced this shift and what is its OEE?",
+      "expected_tool": "get_live_line_data",
+      "tools_called": [
+        "get_live_line_data"
+      ],
+      "match": true,
+      "answer": "**FA-02 Current Shift Performance:**\n\n- **Units Produced:** 268 units (target: 360)\n- **OEE:** 75.2%\n  - Availability: 90.2%\n  - Performance: 83.5%\n  - Quality: 99.9%\n\nThe line is currently tracking **92 units behind target**. The OEE is being primarily impacted by availability (unplanned downtime) and performance (speed loss). Quality is excellent at 99.9%.\n\nWould you like me to check the downtime details for FA-02 to see what caused the availability loss?",
+      "hint": "FA-02 units_produced and oee_pct from the MES OEE endpoint",
+      "elapsed_s": 3.47,
+      "error": null
+    },
+    {
+      "id": 13,
+      "category": "live_data",
+      "question": "What is the quality pass rate on TRIM-01 right now?",
+      "expected_tool": "get_live_line_data",
+      "tools_called": [
+        "get_live_line_data"
+      ],
+      "match": true,
+      "answer": "**TRIM-01 Quality Status** (as of 15:23):\n\n- **Pass Rate: 98.12%**\n- **Units Inspected:** 377\n- **Total Defects:** 7\n\n**Defect Breakdown:**\n- Clip not fully engaged: 5 units\n- Incorrect variant fitted: 2 units\n\nThe line is performing well overall. The clip engagement issue is the primary concern — you may want to check clamp pressure or nesting alignment on the trim fixtures.",
+      "hint": "quality_pass_rate_pct for TRIM-01 from the MES quality endpoint",
+      "elapsed_s": 6.96,
+      "error": null
+    },
+    {
+      "id": 14,
+      "category": "live_data",
+      "question": "Has EV-BAT had any unscheduled maintenance stops today?",
+      "expected_tool": "get_live_line_data",
+      "tools_called": [
+        "get_live_line_data"
+      ],
+      "match": true,
+      "answer": "Yes, EV-BAT has had **unscheduled maintenance stops** today. Here's the summary:\n\n**Unscheduled Downtime Events (last 24 hours):**\n\n1. **Electrical fault — PLC/sensor** (DT-CB052F32)  \n   Duration: 21.7 min | 16:37 | ✓ Resolved\n\n2. **Electrical fault — PLC/sensor** (DT-F5E02BB1)  \n   Duration: 17.7 min | 23:39 | ✓ Resolved\n\n3. **Mechanical failure — fixture/tooling** (DT-D4C2786B)  \n   Duration: 20.2 min | 04:32 | ✓ Resolved\n\n4. **Quality hold** (DT-AC0363C0)  \n   Duration: 11.7 min | 14:35 | ✓ Resolved\n\n5. **Utilities fault — compressed air/power dip** (DT-74A4DC4E)  \n   Duration: 9.5 min | 14:50 | ✓ Resolved\n\nAdditionally, there were operator absence stops (2 events totaling 24.1 min) and a scheduled maintenance event.\n\n**Notable:** The line experienced two electrical faults and one mechanical failure, each exceeding 15 minutes. All events have been resolved. If these recurring electrical or mechanical issues continue, consider escalating for deeper root-cause analysis.",
+      "hint": "Downtime events for EV-BAT filtered for UNSCHD-MAINT reason code in the last 24 hours",
+      "elapsed_s": 4.81,
+      "error": null
+    },
+    {
+      "id": 15,
+      "category": "live_data",
+      "question": "What are the most common defect types on FA-01 this shift?",
+      "expected_tool": "get_live_line_data",
+      "tools_called": [
+        "get_live_line_data"
+      ],
+      "match": true,
+      "answer": "**FA-01 Quality Summary (This Shift)**\n\n- **Units inspected:** 325\n- **Pass rate:** 97.86%\n- **Total defects:** 6\n\n**Defect breakdown (tied for most common):**\n1. **Missing fastener** — 2 units\n2. **Fastener under-torque** — 2 units  \n3. **Misalignment** — 2 units\n\nAll three defect types are equally represented with 2 occurrences each. The good news is the pass rate is solid at 97.86%. \n\nThe fastener-related defects (missing & under-torque) suggest you may want to review your torque verification process. Do you need me to look up the torque verification SOP, or would you like to see downtime/OEE data for FA-01?",
+      "hint": "defect_breakdown list from the FA-01 quality endpoint, ranked by count",
+      "elapsed_s": 3.79,
+      "error": null
+    },
+    {
+      "id": 16,
+      "category": "live_data",
+      "question": "How does TRIM-01's OEE compare to its availability and performance sub-metrics?",
+      "expected_tool": "get_live_line_data",
+      "tools_called": [
+        "get_live_line_data"
+      ],
+      "match": true,
+      "answer": "**TRIM-01 OEE Analysis:**\n\n| Metric | Score |\n|--------|-------|\n| **Overall OEE** | **81.0%** |\n| Availability | 86.6% |\n| Performance | 93.6% |\n| Quality | 99.9% |\n\n**Key Observations:**\n\n- **OEE (81%)** is solid but driven down primarily by **Availability (86.6%)**, which is the weakest sub-metric. This indicates downtime or planned stops are reducing available production time.\n- **Performance (93.6%)** is strong, showing the line runs efficiently when active.\n- **Quality (99.9%)** is excellent with minimal defects.\n\n**Status:** Currently at 329 units produced against a shift target of 420 units. The ~10% availability gap suggests you may want to check recent downtime events on TRIM-01 to identify the cause.\n\nWould you like me to pull the downtime data for the last 24 hours to see what's driving the availability loss?",
+      "hint": "oee_pct, availability_pct, and performance_pct for TRIM-01 from the MES OEE endpoint",
+      "elapsed_s": 5.84,
+      "error": null
+    },
+    {
+      "id": 17,
+      "category": "ticket",
+      "question": "Raise a high severity ticket for EV-BAT — HV connector not seating correctly on three consecutive units.",
+      "expected_tool": "create_incident_ticket",
+      "tools_called": [
+        "create_incident_ticket"
+      ],
+      "match": true,
+      "answer": "**Ticket Created: TKT-AC36A450**\n\n| Field | Value |\n|-------|-------|\n| **Line** | EV-BAT |\n| **Severity** | High |\n| **Status** | Open |\n| **Issue** | HV connector not seating correctly on three consecutive units |\n\nThe ticket has been raised and is now open. Given the high severity and the consecutive defect pattern (safety-critical HV connector), this will be flagged for immediate technician response. \n\n**Next steps:**\n- Hold affected units pending rework\n- Notify your supervisor and quality lead\n- If you haven't already, check the SOP for HV connector handling and containment procedures",
+      "hint": "Ticket created with line_id=EV-BAT, severity=high, ticket_id returned, status=open",
+      "elapsed_s": 3.48,
+      "error": null
+    },
+    {
+      "id": 18,
+      "category": "ticket",
+      "question": "Log a medium severity ticket for TRIM-01: repeated clip engagement failures at the door trim station.",
+      "expected_tool": "create_incident_ticket",
+      "tools_called": [
+        "create_incident_ticket"
+      ],
+      "match": true,
+      "answer": "**Ticket Created Successfully**\n\n- **Ticket ID:** TKT-983780E2\n- **Line:** TRIM-01\n- **Severity:** Medium\n- **Status:** Open\n- **Issue:** Repeated clip engagement failures at the door trim station\n\nThe ticket is now in the system and will be picked up by maintenance. Given this is a repeated failure at a specific station, ensure you document any pattern data (e.g., defect rate, which clips are failing most frequently) to help the maintenance team diagnose the root cause.",
+      "hint": "Ticket created with line_id=TRIM-01, severity=medium, ticket_id returned",
+      "elapsed_s": 2.87,
+      "error": null
+    },
+    {
+      "id": 19,
+      "category": "ticket",
+      "question": "Please open a low severity ticket for FA-02 — minor surface scratches appearing on outgoing units, suspected tooling wear.",
+      "expected_tool": "create_incident_ticket",
+      "tools_called": [
+        "create_incident_ticket"
+      ],
+      "match": true,
+      "answer": "**Ticket created successfully.**\n\n- **Ticket ID:** TKT-E13BDA8A\n- **Line:** FA-02\n- **Severity:** Low\n- **Status:** Open\n- **Issue:** Minor surface scratches appearing on outgoing units, suspected tooling wear\n\nThe ticket has been logged. Maintenance and quality will review and prioritize based on the low severity designation. If the scratch defect rate increases or containment scope grows, you can always escalate by raising a follow-up ticket with higher severity.",
+      "hint": "Ticket created with line_id=FA-02, severity=low, ticket_id returned",
+      "elapsed_s": 3.69,
+      "error": null
+    },
+    {
+      "id": 20,
+      "category": "out_of_scope",
+      "question": "What is OEE and how is it calculated?",
+      "expected_tool": "none",
+      "tools_called": [],
+      "match": true,
+      "answer": "OEE stands for **Overall Equipment Effectiveness**. It's a key manufacturing metric that measures how well a production line is performing by combining three factors:\n\n## OEE Formula:\n**OEE = Availability × Performance × Quality**\n\nEach factor is expressed as a percentage (0–100%), so OEE ranges from 0–100%.\n\n### The Three Components:\n\n1. **Availability** — The percentage of scheduled production time the equipment actually runs\n   - Calculated as: (Planned Production Time − Downtime) / Planned Production Time\n   - Accounts for unplanned stoppages, changeovers, and maintenance\n\n2. **Performance** — How fast the equipment runs compared to its theoretical maximum speed\n   - Calculated as: (Actual Output / Theoretical Maximum Output) × 100\n   - Accounts for minor stoppages, speed losses, and micro-stops\n\n3. **Quality** — The percentage of defect-free units produced\n   - Calculated as: (Good Units / Total Units Produced) × 100\n   - Accounts for defects, rework, and scrap\n\n## Example:\nIf a line has:\n- Availability: 90% (line ran when scheduled)\n- Performance: 95% (ran close to target speed)\n- Quality: 98% (98% of parts were defect-free)\n\n**OEE = 0.90 × 0.95 × 0.98 = 0.839 or 83.9%**\n\n---\n\nIf you need to check the **current OEE for a specific production line** (FA-01, FA-02, TRIM-01, TRIM-02, or EV-BAT), I can pull that live data for you. Just let me know which line.",
+      "hint": "General explanation of OEE = Availability × Performance × Quality; no tool call needed as this is general manufacturing knowledge",
+      "elapsed_s": 4.61,
+      "error": null
+    },
+    {
+      "id": 21,
+      "category": "out_of_scope",
+      "question": "What's the weather forecast for the plant location today?",
+      "expected_tool": "none",
+      "tools_called": [],
+      "match": true,
+      "answer": "I don't have access to weather data or external weather forecasts. My tools are limited to:\n\n1. **SOP Knowledge Base** — manufacturing procedures, escalation paths, and role responsibilities\n2. **Live MES Data** — production line OEE, quality, and downtime metrics\n3. **Incident Ticket Creation** — for raising maintenance and quality issues\n\nFor the weather forecast, you'll need to check a weather service directly (e.g., your phone, local news, or a weather website).\n\nIs there anything related to production operations, line performance, or manufacturing procedures I can help you with?",
+      "hint": "Agent should decline or state it cannot answer weather questions; no tool call should be made",
+      "elapsed_s": 2.15,
+      "error": null
+    },
+    {
+      "id": 22,
+      "category": "out_of_scope",
+      "question": "Can you write me a Python script to parse CSV files?",
+      "expected_tool": "none",
+      "tools_called": [],
+      "match": true,
+      "answer": "I appreciate the question, but that's outside my scope. I'm **Shopfloor Copilot**, specialized to help automotive manufacturing operators and team leaders with:\n\n- **Standard Operating Procedures** (changeover, quality holds, torque verification, EV battery handling, etc.)\n- **Live production data** (OEE, quality defects, downtime on your manufacturing lines)\n- **Incident escalation** (raising maintenance/quality tickets)\n\nFor Python scripting help, you'd want to reach out to your IT or software development team.\n\nIs there anything I can help you with on the shop floor or production lines?",
+      "hint": "Agent should decline politely and stay in its shopfloor domain; no manufacturing tool should be invoked",
+      "elapsed_s": 1.98,
+      "error": null
+    }
+  ]
+}
