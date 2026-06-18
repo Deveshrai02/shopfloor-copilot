@@ -1,19 +1,9 @@
----
-title: Shopfloor Copilot
-emoji: 🏭
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-app_port: 7860
-app_file: app/streamlit_app.py
-pinned: false
----
 
 # Shopfloor Copilot
 
 Automotive manufacturing operators spend significant time manually searching SOPs for escalation thresholds, role responsibilities, and procedure steps — and separately querying production dashboards for OEE, defect counts, and downtime logs. Both tasks interrupt the floor and introduce latency when fast decisions matter. Shopfloor Copilot puts both information sources behind a single plain-language interface: operators ask questions in the same way they would ask a colleague, and the agent determines whether to retrieve from the SOP knowledge base, fetch live MES data, or raise a formal incident ticket — without the operator needing to know which system holds the answer.
 
-> 🎬 **Demo video:** _coming soon — link will be added here_
+> 🎬 **Link:** https://huggingface.co/spaces/drai2/shopfloor-copilot
 
 ---
 
